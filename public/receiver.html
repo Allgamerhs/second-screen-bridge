@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a101b">
+  <title>Second Screen Bridge · Receiver</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/receiver.js" defer></script>
+</head>
+<body class="receiver-page">
+  <main id="bridgeDemo" class="receiver-shell">
+    <header class="site-header">
+      <div class="brand-mark" aria-hidden="true">↗</div>
+      <div>
+        <p class="eyebrow">SECOND SCREEN BRIDGE</p>
+        <h1>Give your TV a better keyboard.</h1>
+      </div>
+      <span class="local-pill">LOCAL NETWORK</span>
+    </header>
+
+    <div class="receiver-columns">
+      <section class="panel pair-panel" aria-labelledby="pairTitle">
+        <p class="section-number">01 / PAIR</p>
+        <h2 id="pairTitle">Connect a phone</h2>
+        <p class="supporting">Open the address below on a phone connected to the same network, then enter the code.</p>
+        <p class="label">PHONE ADDRESS</p>
+        <a id="phoneUrl" class="phone-url" href="#">Connecting…</a>
+        <p class="label">ONE-TIME CODE</p>
+        <p id="pairCode" class="pair-code" aria-live="polite">--------</p>
+        <p id="pairExpires" class="subtle">Preparing a code…</p>
+        <div class="button-row">
+          <button id="rotateCode" type="button" class="button button-primary">New code</button>
+          <button id="disconnectReceiver" type="button" class="button">Disconnect</button>
+          <button id="startReceiver" type="button" class="button">Start</button>
+        </div>
+        <p id="receiverStatus" class="status" role="status" aria-live="polite">Starting…</p>
+      </section>
+
+      <section class="panel demo-panel" aria-labelledby="demoTitle">
+        <p class="section-number">02 / TRY IT</p>
+        <h2 id="demoTitle">Input arrives here</h2>
+        <p class="supporting">Send text or a remote key from your phone. The two fields are examples for an app integration.</p>
+        <div class="demo-field active-field">
+          <label for="searchInput">Search</label>
+          <input id="searchInput" type="text" readonly placeholder="Your phone keyboard is ready">
+        </div>
+        <div class="demo-field">
+          <label for="urlInput">URL</label>
+          <input id="urlInput" type="url" readonly placeholder="Send a link from your phone">
+        </div>
+        <p class="label">RECENT ACTIVITY</p>
+        <ol id="eventLog" class="event-log" aria-live="polite">
+          <li>Waiting for input…</li>
+        </ol>
+      </section>
+    </div>
+    <footer class="site-footer">
+      <span>No account. No cloud. Pairing stays on your local network.</span>
+      <span>Designed for TV browsers and regular web apps.</span>
+    </footer>
+  </main>
+</body>
+</html>

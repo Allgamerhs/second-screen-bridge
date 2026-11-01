@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a101b">
+  <title>Second Screen Bridge · Phone</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/phone.js" defer></script>
+</head>
+<body class="phone-page">
+  <main class="phone-shell">
+    <header class="phone-header">
+      <div class="brand-mark" aria-hidden="true">↗</div>
+      <div>
+        <p class="eyebrow">SECOND SCREEN BRIDGE</p>
+        <h1>Type on your phone.</h1>
+      </div>
+    </header>
+
+    <section id="pairSection" class="panel phone-panel" aria-labelledby="pairHeading">
+      <p class="section-number">01 / CONNECT</p>
+      <h2 id="pairHeading">Pair with your screen</h2>
+      <p class="supporting">Enter the eight-digit code shown on your TV or computer. Both devices need to be on the same network.</p>
+      <form id="pairForm">
+        <label for="pairCodeInput">Pairing code</label>
+        <input id="pairCodeInput" class="code-input" type="text" inputmode="numeric" pattern="[0-9]{8}"
+          maxlength="8" autocomplete="one-time-code" placeholder="00000000" required>
+        <button id="connectButton" class="button button-primary button-wide" type="submit">Connect</button>
+      </form>
+    </section>
+
+    <section id="controlSection" class="panel phone-panel is-hidden" aria-labelledby="controlHeading">
+      <div class="control-heading-row">
+        <div>
+          <p class="section-number">02 / CONTROL</p>
+          <h2 id="controlHeading">Connected to <span id="receiverName">your screen</span></h2>
+        </div>
+        <button id="disconnectButton" class="button button-small" type="button">Disconnect</button>
+      </div>
+      <p id="sessionExpires" class="subtle"></p>
+
+      <form id="sendForm" class="send-form">
+        <label for="targetField">Send to</label>
+        <select id="targetField" required></select>
+        <label for="messageText">Text or link</label>
+        <textarea id="messageText" rows="4" maxlength="4096" placeholder="Type or paste here"></textarea>
+        <div class="send-actions">
+          <button id="sendText" class="button button-primary" type="submit">Send to screen</button>
+          <button id="clearText" class="button" type="button">Clear</button>
+        </div>
+      </form>
+
+      <div class="remote-section" aria-labelledby="remoteHeading">
+        <div class="remote-heading">
+          <h3 id="remoteHeading">Remote keys</h3>
+          <span>Tap a key to send it</span>
+        </div>
+        <div class="remote-pad" role="group" aria-label="Directional remote">
+          <span></span><button type="button" data-key="ArrowUp" aria-label="Up">↑</button><span></span>
+          <button type="button" data-key="ArrowLeft" aria-label="Left">←</button>
+          <button type="button" data-key="Enter" aria-label="OK">OK</button>
+          <button type="button" data-key="ArrowRight" aria-label="Right">→</button>
+          <span></span><button type="button" data-key="ArrowDown" aria-label="Down">↓</button><span></span>
+        </div>
+        <div class="utility-keys" role="group" aria-label="Other remote keys">
+          <button type="button" data-key="Escape">Back</button>
+          <button type="button" data-key="Backspace">Delete</button>
+          <button type="button" data-key="MediaPlayPause">Play / Pause</button>
+        </div>
+      </div>
+    </section>
+
+    <p id="phoneStatus" class="status phone-status" role="status" aria-live="polite">Ready to pair.</p>
+    <p class="phone-footer">No account · Short-lived code · Local network only</p>
+  </main>
+</body>
+</html>

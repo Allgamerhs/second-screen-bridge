@@ -1,0 +1,16 @@
+{
+  "name": "second-screen-bridge",
+  "version": "1.0.0",
+  "description": "Pair a phone with a TV web app over a local network for text input and remote control.",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test",
+    "check": "node --check server.mjs && node --check public/receiver.js && node --check public/phone.js"
+  }
+}
